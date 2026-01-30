@@ -21,8 +21,8 @@ const highlights = [
   },
   {
     icon: Users,
-    title: "Liderança",
-    description: "Experiência liderando times e projetos de alta complexidade.",
+    title: "Colaboração",
+    description: "Experiência trabalhando em times e projetos de alta complexidade.",
   },
 ];
 

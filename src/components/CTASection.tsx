@@ -57,14 +57,14 @@ const CTASection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="mailto:contato@joaopessoa.dev" className="group">
+              <a href="mailto:joaoppessoa719@gmail.com" className="group">
                 <Mail className="w-5 h-5" />
                 Vamos Conversar
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/jppessoa/" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="w-5 h-5" />
                 LinkedIn
               </a>

@@ -95,7 +95,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto"
         >
-          +4 anos liderando projetos, arquitetando soluções escaláveis e entregando produtos de ponta a ponta.
+          +4 anos desenvolvendo projetos, arquitetando soluções escaláveis e entregando produtos de ponta a ponta.
         </motion.p>
 
         {/* CTAs */}
@@ -121,7 +121,7 @@ const HeroSection = () => {
           className="flex justify-center gap-6"
         >
           <a
-            href="https://github.com"
+            href="https://github.com/johnnydev0"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -129,7 +129,7 @@ const HeroSection = () => {
             <Github className="w-6 h-6" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/jppessoa/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -137,7 +137,7 @@ const HeroSection = () => {
             <Linkedin className="w-6 h-6" />
           </a>
           <a
-            href="mailto:contato@joaopessoa.dev"
+            href="mailto:joaoppessoa719@gmail.com"
             className="text-muted-foreground hover:text-primary transition-colors duration-300"
           >
             <Mail className="w-6 h-6" />

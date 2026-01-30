@@ -21,7 +21,7 @@ const Footer = () => {
           {/* Center - Social Links */}
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/johnnydev0"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-300 link-underline"
@@ -29,7 +29,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/jppessoa/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-300 link-underline"
@@ -37,7 +37,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:contato@joaopessoa.dev"
+              href="mailto:joaoppessoa719@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors duration-300 link-underline"
             >
               <Mail className="w-5 h-5" />

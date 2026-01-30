@@ -10,7 +10,7 @@ const experiences = [
     location: "São Paulo, Brasil",
     period: "2023 - Presente",
     description: [
-      "Liderança técnica em projetos de alta complexidade",
+      "Desenvolvimento técnico em projetos de alta complexidade",
       "Desenvolvimento de dashboards analíticos com React e TypeScript",
       "Arquitetura de soluções escaláveis em cloud",
       "Mentoria de desenvolvedores júnior e pleno",
