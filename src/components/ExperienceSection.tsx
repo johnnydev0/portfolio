@@ -5,10 +5,24 @@ import { Briefcase, MapPin, Calendar } from "lucide-react";
 
 const experiences = [
   {
+    title: "Founder & Full Stack Engineer",
+    company: "Projetos SaaS Próprios",
+    location: "Remoto",
+    period: "2025 - Presente",
+    description: [
+      "Liderando o desenvolvimento de produtos SaaS do zero ao mercado",
+      "Arquitetura de sistemas escaláveis com foco em automação e IA",
+      "Desenvolvimento full-stack com integrações de inteligência artificial",
+      "Gestão completa do ciclo de vida dos produtos: ideação, desenvolvimento e go-to-market",
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "OpenAI", "NestJS", "PostgreSQL"],
+    isCurrent: true,
+  },
+  {
     title: "Senior Software Engineer",
     company: "OT3N Brasil",
-    location: "São Paulo, Brasil",
-    period: "2023 - Presente",
+    location: "Brasília, Brasil",
+    period: "2024 - Dez 2024",
     description: [
       "Desenvolvimento técnico em projetos de alta complexidade",
       "Desenvolvimento de dashboards analíticos com React e TypeScript",
@@ -16,13 +30,13 @@ const experiences = [
       "Mentoria de desenvolvedores júnior e pleno",
     ],
     technologies: ["React", "TypeScript", "Node.js", "AWS", "PostgreSQL"],
-    isCurrent: true,
+    isCurrent: false,
   },
   {
     title: "Software Engineer",
     company: "A3 Media",
-    location: "São Paulo, Brasil",
-    period: "2021 - 2023",
+    location: "Barueri, Brasil",
+    period: "2023 - 2024",
     description: [
       "Desenvolvimento full-stack de plataformas de mídia",
       "Implementação de sistemas de pagamento com Stripe",
@@ -35,8 +49,8 @@ const experiences = [
   {
     title: "Frontend Engineer",
     company: "BWS IoT",
-    location: "São Paulo, Brasil",
-    period: "2020 - 2021",
+    location: "Barueri, Brasil",
+    period: "2020 - 2023",
     description: [
       "Desenvolvimento de dashboards IoT com atualização em tempo real",
       "Redução de 80% nos custos com Google Maps através de otimização",
@@ -128,7 +142,7 @@ const ExperienceSection = () => {
                 {/* Description */}
                 <ul className="space-y-2 mb-4">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="text-muted-foreground flex items-start gap-2">
+                    <li key={i} className="text-muted-foreground flex items-center gap-2">
                       <span className="text-primary mt-1.5">▹</span>
                       {item}
                     </li>

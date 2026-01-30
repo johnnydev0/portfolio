@@ -1,62 +1,40 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Dashboard Analytics",
-    description: "Plataforma de analytics em tempo real com visualizações interativas e performance otimizada.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    tech: ["React", "TypeScript", "D3.js", "Node.js"],
-    impact: "Redução de 60% no tempo de análise de dados",
-    link: "#",
-    github: "#",
+    title: "Prosperia",
+    description: "Plataforma que integra consultoria financeira, IA via WhatsApp e educação contínua em um ecossistema único de transformação financeira.",
+    image: "https://prosperiaco.com.br/wp-content/uploads/2025/11/Sequencia-10-1.gif",
+    tech: ["React", "Chart.js", "Tailwind", "PostgreSQL", "NestJS", "IA"],
+    impact: "Ecossistema completo de finanças pessoais",
+    link: "https://www.prosperiaco.com.br",
   },
   {
-    title: "E-commerce Platform",
-    description: "Sistema completo de e-commerce com checkout otimizado, gestão de estoque e painel admin.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    tech: ["Next.js", "Stripe", "PostgreSQL", "Redis"],
-    impact: "Aumento de 40% na taxa de conversão",
-    link: "#",
-    github: "#",
+    title: "Porâneo",
+    description: "Landing page para estúdio que une arquitetura, mobiliário e expografia, traduzindo identidade visual e conceito em uma experiência digital clara e elegante.",
+    image: "/poraneo.PNG",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    impact: "Design premium e experiência imersiva",
+    link: "https://www.poraneo.com",
   },
   {
-    title: "IoT Dashboard",
-    description: "Dashboard para monitoramento de dispositivos IoT com atualização em tempo real via WebSocket.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    tech: ["React", "WebSocket", "MQTT", "AWS IoT"],
-    impact: "Gestão de +10.000 dispositivos simultâneos",
-    link: "#",
-    github: "#",
+    title: "CategorizAI",
+    description: "IA que categoriza suas finanças e entrega insights inteligentes para você entender e controlar melhor seu dinheiro.",
+    image: "/categorizai.PNG",
+    tech: ["React", "TypeScript", "OpenAI", "Node.js"],
+    impact: "Automação inteligente de finanças",
+    link: "https://www.categorizai.com.br",
   },
   {
-    title: "Maps Integration",
-    description: "Sistema de geolocalização com otimização de rotas e redução de custos com Google Maps.",
-    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=400&fit=crop",
-    tech: ["React", "Google Maps API", "Node.js", "MongoDB"],
-    impact: "Redução de 80% nos custos de API",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "SaaS Platform",
-    description: "Plataforma SaaS multi-tenant com autenticação avançada e billing automatizado.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    tech: ["Next.js", "Prisma", "Stripe", "Auth0"],
-    impact: "Escalável para +100k usuários",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Mobile App Backend",
-    description: "API robusta para aplicativo mobile com autenticação, notificações push e sincronização offline.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-    tech: ["Node.js", "GraphQL", "Firebase", "PostgreSQL"],
-    impact: "99.9% uptime em produção",
-    link: "#",
-    github: "#",
+    title: "Contexto Marcenaria",
+    description: "Landing page de alta conversão para empresa conceitual no ramo de marcenaria, com foco em captura de leads e apresentação premium dos serviços.",
+    image: "/contexto-marcenaria.PNG",
+    tech: ["Next.js", "Supabase", "Tailwind"],
+    impact: "Otimizada para conversão de leads",
+    link: "https://www.contextomarcenaria.com.br",
   },
 ];
 
@@ -122,20 +100,14 @@ const ProjectsSection = () => {
                     <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <div className="flex gap-2">
-                      <a
-                        href={project.github}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Github className="w-5 h-5" />
-                      </a>
-                      <a
-                        href={project.link}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    </div>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
                   </div>
 
                   {/* Tech Stack */}
