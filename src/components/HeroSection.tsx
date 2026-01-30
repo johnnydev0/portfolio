@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -141,6 +141,14 @@ const HeroSection = () => {
             className="text-muted-foreground hover:text-primary transition-colors duration-300"
           >
             <Mail className="w-6 h-6" />
+          </a>
+          <a
+            href="https://wa.me/5511992400586"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors duration-300"
+          >
+            <MessageCircle className="w-6 h-6" />
           </a>
         </motion.div>
 

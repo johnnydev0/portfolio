@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, MessageSquare } from "lucide-react";
+import { ArrowRight, Mail, MessageSquare, MessageCircle } from "lucide-react";
 
 const CTASection = () => {
   const ref = useRef(null);
@@ -67,6 +67,12 @@ const CTASection = () => {
               <a href="https://www.linkedin.com/in/jppessoa/" target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="w-5 h-5" />
                 LinkedIn
+              </a>
+            </Button>
+            <Button variant="heroOutline" size="xl" asChild>
+              <a href="https://wa.me/5511992400586" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp
               </a>
             </Button>
           </motion.div>

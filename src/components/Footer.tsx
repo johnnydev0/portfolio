@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -41,6 +41,14 @@ const Footer = () => {
               className="text-muted-foreground hover:text-primary transition-colors duration-300 link-underline"
             >
               <Mail className="w-5 h-5" />
+            </a>
+            <a
+              href="https://wa.me/5511992400586"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 link-underline"
+            >
+              <MessageCircle className="w-5 h-5" />
             </a>
           </div>
 
