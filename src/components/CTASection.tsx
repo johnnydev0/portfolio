@@ -3,8 +3,10 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, MessageSquare, MessageCircle } from "lucide-react";
+import { useTranslation } from "@/i18n";
 
 const CTASection = () => {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -34,19 +36,18 @@ const CTASection = () => {
         >
           {/* Code Tag */}
           <span className="code-font text-sm text-primary mb-6 block">
-            {"// let's connect"}
+            {t.cta.sectionTag}
           </span>
 
           {/* Headline */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Vamos construir algo{" "}
-            <span className="text-gradient glow-text">incrível</span> juntos?
+            {t.cta.title}{" "}
+            <span className="text-gradient glow-text">{t.cta.titleHighlight}</span> {t.cta.together}
           </h2>
 
           {/* Description */}
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Estou sempre aberto a novos projetos, oportunidades remotas e parcerias 
-            interessantes. Se você tem uma ideia, vamos conversar!
+            {t.cta.description}
           </p>
 
           {/* CTAs */}
@@ -59,7 +60,7 @@ const CTASection = () => {
             <Button variant="hero" size="xl" asChild>
               <a href="mailto:joaoppessoa719@gmail.com" className="group">
                 <Mail className="w-5 h-5" />
-                Vamos Conversar
+                {t.cta.letsChat}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -86,7 +87,7 @@ const CTASection = () => {
           >
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span className="text-sm text-muted-foreground">
-              Disponível para novos projetos
+              {t.cta.available}
             </span>
           </motion.div>
         </motion.div>

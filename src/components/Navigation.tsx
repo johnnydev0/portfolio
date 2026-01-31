@@ -2,17 +2,20 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const navLinks = [
-  { href: "#about", label: "Sobre" },
-  { href: "#projects", label: "Projetos" },
-  { href: "#experience", label: "Experiência" },
-  { href: "#contact", label: "Contato" },
-];
+import { useTranslation } from "@/i18n";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const Navigation = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#about", label: t.nav.about },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#experience", label: t.nav.experience },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,8 +57,9 @@ const Navigation = () => {
                   {link.label}
                 </a>
               ))}
+              <LanguageSwitcher />
               <Button variant="hero" size="sm" asChild>
-                <a href="#contact">Contratar</a>
+                <a href="#contact">{t.nav.hire}</a>
               </Button>
             </div>
 
@@ -99,10 +103,18 @@ const Navigation = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.4 }}
+                  className="flex items-center gap-4"
+                >
+                  <LanguageSwitcher />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.5 }}
                 >
                   <Button variant="hero" size="lg" asChild className="w-full">
                     <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                      Contratar
+                      {t.nav.hire}
                     </a>
                   </Button>
                 </motion.div>

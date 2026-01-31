@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { useTranslation } from "@/i18n";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 hero-gradient" />
       <div className="absolute inset-0 grid-pattern opacity-30" />
-      
+
       {/* Floating Glow Orbs */}
       <motion.div
         className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
@@ -45,7 +48,7 @@ const HeroSection = () => {
           className="mb-6"
         >
           <span className="code-font text-sm text-muted-foreground px-4 py-2 bg-secondary/50 rounded-full border border-border">
-            {"<"}<span className="text-primary">SoftwareEngineer</span>{" />"} 
+            {"<"}<span className="text-primary">SoftwareEngineer</span>{" />"}
           </span>
         </motion.div>
 
@@ -78,7 +81,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-wrap justify-center gap-3 mb-8"
         >
-          {["React", "Next.js", "TypeScript", "Node.js"].map((tech, index) => (
+          {["React", "Next.js", "TypeScript", "Node.js"].map((tech) => (
             <span
               key={tech}
               className="px-3 py-1 text-sm text-primary border border-primary/30 rounded-full bg-primary/5"
@@ -95,7 +98,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto"
         >
-          +4 anos desenvolvendo projetos, arquitetando soluções escaláveis e entregando produtos de ponta a ponta.
+          {t.hero.tagline}
         </motion.p>
 
         {/* CTAs */}
@@ -106,10 +109,10 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
           <Button variant="hero" size="xl" asChild>
-            <a href="#projects">Ver Projetos</a>
+            <a href="#projects">{t.hero.viewProjects}</a>
           </Button>
           <Button variant="heroOutline" size="xl" asChild>
-            <a href="#contact">Entrar em Contato</a>
+            <a href="#contact">{t.hero.getInTouch}</a>
           </Button>
         </motion.div>
 

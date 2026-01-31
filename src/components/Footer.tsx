@@ -1,6 +1,8 @@
 import { Github, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
+import { useTranslation } from "@/i18n";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -14,7 +16,7 @@ const Footer = () => {
             </span>
             <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <MapPin className="w-4 h-4" />
-              São Paulo, Brasil
+              {t.footer.location}
             </div>
           </div>
 

@@ -2,45 +2,43 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-
-const projects = [
-  {
-    title: "Prosperia",
-    description: "Plataforma que integra consultoria financeira, IA via WhatsApp e educação contínua em um ecossistema único de transformação financeira.",
-    image: "https://prosperiaco.com.br/wp-content/uploads/2025/11/Sequencia-10-1.gif",
-    tech: ["React", "Chart.js", "Tailwind", "PostgreSQL", "NestJS", "IA"],
-    impact: "Ecossistema completo de finanças pessoais",
-    link: "https://www.prosperiaco.com.br",
-  },
-  {
-    title: "Porâneo",
-    description: "Landing page para estúdio que une arquitetura, mobiliário e expografia, traduzindo identidade visual e conceito em uma experiência digital clara e elegante.",
-    image: "/poraneo.PNG",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    impact: "Design premium e experiência imersiva",
-    link: "https://www.poraneo.com",
-  },
-  {
-    title: "CategorizAI",
-    description: "IA que categoriza suas finanças e entrega insights inteligentes para você entender e controlar melhor seu dinheiro.",
-    image: "/categorizai.PNG",
-    tech: ["React", "TypeScript", "OpenAI", "Node.js"],
-    impact: "Automação inteligente de finanças",
-    link: "https://www.categorizai.com.br",
-  },
-  {
-    title: "Contexto Marcenaria",
-    description: "Landing page de alta conversão para empresa conceitual no ramo de marcenaria, com foco em captura de leads e apresentação premium dos serviços.",
-    image: "/contexto-marcenaria.PNG",
-    tech: ["Next.js", "Supabase", "Tailwind"],
-    impact: "Otimizada para conversão de leads",
-    link: "https://www.contextomarcenaria.com.br",
-  },
-];
+import { useTranslation } from "@/i18n";
 
 const ProjectsSection = () => {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const projects = [
+    {
+      key: "prosperia" as const,
+      title: "Prosperia",
+      image: "https://prosperiaco.com.br/wp-content/uploads/2025/11/Sequencia-10-1.gif",
+      tech: ["React", "Chart.js", "Tailwind", "PostgreSQL", "NestJS", "IA"],
+      link: "https://www.prosperiaco.com.br",
+    },
+    {
+      key: "poraneo" as const,
+      title: "Porâneo",
+      image: "/poraneo.PNG",
+      tech: ["React", "Tailwind", "Framer Motion"],
+      link: "https://www.poraneo.com",
+    },
+    {
+      key: "categorizai" as const,
+      title: "CategorizAI",
+      image: "/categorizai.PNG",
+      tech: ["React", "TypeScript", "OpenAI", "Node.js"],
+      link: "https://www.categorizai.com.br",
+    },
+    {
+      key: "contextoMarcenaria" as const,
+      title: "Contexto Marcenaria",
+      image: "/contexto-marcenaria.PNG",
+      tech: ["Next.js", "Supabase", "Tailwind"],
+      link: "https://www.contextomarcenaria.com.br",
+    },
+  ];
 
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
@@ -52,13 +50,13 @@ const ProjectsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="code-font text-sm text-primary mb-4 block">
-            {"// projects"}
+            {t.projects.sectionTag}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Projetos <span className="text-gradient">Selecionados</span>
+            {t.projects.title} <span className="text-gradient">{t.projects.titleHighlight}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Uma seleção de projetos que demonstram minha experiência em criar soluções escaláveis e de alto impacto.
+            {t.projects.subtitle}
           </p>
         </motion.div>
       </div>
@@ -89,7 +87,7 @@ const ProjectsSection = () => {
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <p className="text-sm text-muted-foreground">
-                      {project.description}
+                      {t.projects.items[project.key].description}
                     </p>
                   </div>
                 </div>
@@ -124,7 +122,7 @@ const ProjectsSection = () => {
 
                   {/* Impact */}
                   <p className="text-sm text-primary font-medium">
-                    ✦ {project.impact}
+                    ✦ {t.projects.items[project.key].impact}
                   </p>
                 </div>
               </div>
