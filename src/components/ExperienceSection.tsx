@@ -8,7 +8,7 @@ const experiences = [
     title: "Founder & Full Stack Engineer",
     company: "Projetos SaaS Próprios",
     location: "Remoto",
-    period: "2025 - Presente",
+    period: "2026 - Presente",
     description: [
       "Liderando o desenvolvimento de produtos SaaS do zero ao mercado",
       "Arquitetura de sistemas escaláveis com foco em automação e IA",
@@ -22,7 +22,7 @@ const experiences = [
     title: "Senior Software Engineer",
     company: "OT3N Brasil",
     location: "Brasília, Brasil",
-    period: "2024 - Dez 2024",
+    period: "2024 - Dez 2025",
     description: [
       "Desenvolvimento técnico em projetos de alta complexidade",
       "Desenvolvimento de dashboards analíticos com React e TypeScript",
