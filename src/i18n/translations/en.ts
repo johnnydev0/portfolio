@@ -13,6 +13,8 @@ export const en: Translations = {
     tagline: '+4 years developing projects, architecting scalable solutions and delivering end-to-end products.',
     viewProjects: 'View Projects',
     getInTouch: 'Get in Touch',
+    typingWords: ['Building products', 'Architecting solutions', 'Scaling systems', 'Crafting experiences'],
+    clicksRemaining: 'clicks remaining...',
   },
 
   about: {

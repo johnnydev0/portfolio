@@ -15,6 +15,8 @@ export interface Translations {
     tagline: string;
     viewProjects: string;
     getInTouch: string;
+    typingWords: string[];
+    clicksRemaining: string;
   };
 
   // About Section

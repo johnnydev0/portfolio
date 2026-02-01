@@ -13,6 +13,8 @@ export const ptBR: Translations = {
     tagline: '+4 anos desenvolvendo projetos, arquitetando soluções escaláveis e entregando produtos de ponta a ponta.',
     viewProjects: 'Ver Projetos',
     getInTouch: 'Entrar em Contato',
+    typingWords: ['Construindo produtos', 'Arquitetando soluções', 'Escalando sistemas', 'Criando experiências'],
+    clicksRemaining: 'cliques restantes...',
   },
 
   about: {

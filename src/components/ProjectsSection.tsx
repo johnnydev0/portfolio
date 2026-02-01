@@ -21,7 +21,7 @@ const ProjectsSection = () => {
       key: "poraneo" as const,
       title: "Porâneo",
       image: "/poraneo.PNG",
-      tech: ["React", "Tailwind", "Framer Motion"],
+      tech: ["Next.js", "Tailwind", "Framer Motion"],
       link: "https://www.poraneo.com",
     },
     {
@@ -72,61 +72,71 @@ const ProjectsSection = () => {
         >
           {/* Double the projects for infinite scroll effect */}
           {[...projects, ...projects].map((project, index) => (
-            <div
+            <motion.div
               key={`${project.title}-${index}`}
-              className="flex-shrink-0 w-[400px] mx-4 group"
+              className="flex-shrink-0 w-[400px] mx-4 group perspective-1000"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="relative bg-card rounded-xl border border-border overflow-hidden transition-all duration-500 hover:border-primary/50 hover-glow">
+              <div className="relative bg-card rounded-xl border border-border overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.15)] group-hover:-translate-y-2">
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <p className="text-sm text-muted-foreground">
+                  {/* Gradient overlay always visible */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
+                  {/* Description overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/95 to-card/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center p-6 text-center backdrop-blur-sm">
+                    <p className="text-sm text-foreground mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                       {t.projects.items[project.key].description}
                     </p>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {project.title}
-                    </h3>
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 hover:bg-primary/90"
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      Ver Projeto <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
+                </div>
 
-                  {/* Tech Stack */}
+                {/* Content */}
+                <div className="p-6 relative">
+                  {/* Animated border line */}
+                  <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors opacity-50 group-hover:opacity-100" />
+                  </div>
+
+                  {/* Tech Stack with staggered animation */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
+                    {project.tech.map((tech, techIndex) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs text-primary bg-primary/10 rounded-md border border-primary/20"
+                        className="px-2 py-1 text-xs text-primary bg-primary/10 rounded-md border border-primary/20 transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40"
+                        style={{ transitionDelay: `${techIndex * 50}ms` }}
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  {/* Impact */}
-                  <p className="text-sm text-primary font-medium">
-                    ✦ {t.projects.items[project.key].impact}
+                  {/* Impact with icon animation */}
+                  <p className="text-sm text-primary font-medium flex items-center gap-2">
+                    <span className="inline-block transition-transform duration-300 group-hover:rotate-180">✦</span>
+                    {t.projects.items[project.key].impact}
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

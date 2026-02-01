@@ -1,10 +1,50 @@
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { useTranslation } from "@/i18n";
+import { useTypingEffect } from "@/hooks/useTypingEffect";
+import SnakeGame from "./SnakeGame";
+
+const EASTER_EGG_CLICKS = 7;
 
 const HeroSection = () => {
   const { t } = useTranslation();
+  const { currentText } = useTypingEffect({
+    words: t.hero.typingWords,
+    typingSpeed: 80,
+    deletingSpeed: 40,
+    delayBetweenWords: 2500,
+  });
+
+  const [clickCount, setClickCount] = useState(0);
+  const [showGame, setShowGame] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+  const clickTimeoutRef = useRef<number>();
+
+  const handleNameClick = () => {
+    if (clickTimeoutRef.current) {
+      clearTimeout(clickTimeoutRef.current);
+    }
+
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+
+    if (newCount >= 1 && newCount < EASTER_EGG_CLICKS) {
+      setShowHint(true);
+    }
+
+    if (newCount >= EASTER_EGG_CLICKS) {
+      setShowGame(true);
+      setClickCount(0);
+      setShowHint(false);
+    }
+
+    clickTimeoutRef.current = window.setTimeout(() => {
+      setClickCount(0);
+      setShowHint(false);
+    }, 2000);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -59,10 +99,38 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tight"
         >
-          <span className="text-foreground">João Paulo</span>
+          <motion.span
+            className="text-foreground cursor-pointer select-none inline-block"
+            onClick={handleNameClick}
+            whileTap={{ scale: 0.98 }}
+            animate={clickCount > 0 ? {
+              color: [`hsl(var(--foreground))`, `hsl(var(--primary))`, `hsl(var(--foreground))`],
+            } : {}}
+            transition={{ duration: 0.3 }}
+          >
+            João Paulo
+          </motion.span>
           <br />
-          <span className="text-gradient glow-text">Pessoa</span>
+          <motion.span
+            className="text-gradient glow-text cursor-pointer select-none inline-block"
+            onClick={handleNameClick}
+            whileTap={{ scale: 0.98 }}
+          >
+            Pessoa
+          </motion.span>
         </motion.h1>
+
+        {/* Easter Egg Hint */}
+        {showHint && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="text-xs text-primary/70 mb-2"
+          >
+            {EASTER_EGG_CLICKS - clickCount} {t.hero.clicksRemaining}
+          </motion.p>
+        )}
 
         {/* Subtitle */}
         <motion.p
@@ -73,6 +141,19 @@ const HeroSection = () => {
         >
           Software Engineer Full Stack
         </motion.p>
+
+        {/* Typing Effect */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="h-8 mb-4"
+        >
+          <span className="text-lg md:text-xl text-primary font-medium">
+            {currentText}
+            <span className="animate-pulse">|</span>
+          </span>
+        </motion.div>
 
         {/* Tech Stack */}
         <motion.div
@@ -170,6 +251,9 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Snake Game Easter Egg */}
+      <SnakeGame isOpen={showGame} onClose={() => setShowGame(false)} />
     </section>
   );
 };
