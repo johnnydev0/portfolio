@@ -100,6 +100,18 @@ export interface Translations {
     available: string;
   };
 
+  // FAQ Section
+  faq: {
+    sectionTag: string;
+    title: string;
+    titleHighlight: string;
+    items: Array<{
+      question: string;
+      answer: string;
+      list?: string[];
+    }>;
+  };
+
   // Footer
   footer: {
     location: string;

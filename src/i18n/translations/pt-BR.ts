@@ -138,6 +138,54 @@ export const ptBR: Translations = {
     available: 'Disponível para novos projetos',
   },
 
+  faq: {
+    sectionTag: '// faq',
+    title: 'Perguntas',
+    titleHighlight: 'Frequentes',
+    items: [
+      {
+        question: 'Em quais tecnologias você se especializa?',
+        answer: 'Me especializo em desenvolvimento full-stack com mais de 4 anos de experiência prática. Minha stack principal inclui:',
+        list: [
+          'React & Next.js — frontends modernos e performáticos',
+          'TypeScript & Node.js — backends escaláveis com tipagem segura',
+          'AWS, Docker & CI/CD — infraestrutura cloud e DevOps',
+          'PostgreSQL & Firebase — bancos relacionais e em tempo real',
+          'APIs REST & GraphQL — integrações com serviços de terceiros',
+        ],
+      },
+      {
+        question: 'Você está disponível para freelance ou trabalho remoto?',
+        answer: 'Sim — estou aberto a novos projetos, oportunidades remotas e parcerias estratégicas no mundo todo. Me adapto ao seu fuso horário e fluxo de trabalho.',
+      },
+      {
+        question: 'Quantos anos de experiência você tem?',
+        answer: 'Mais de 4 anos de experiência profissional desde 2020. Principais marcos da minha carreira:',
+        list: [
+          'Redução de 50% no tempo de carregamento de páginas na A3 Media',
+          'Redução de 80% nos custos com a API do Google Maps na BWS IoT',
+          'Cargo de Senior Engineer liderando projetos de alta complexidade na OT3N Brasil',
+          'Fundador construindo produtos SaaS com IA do zero ao mercado',
+        ],
+      },
+      {
+        question: 'Quais tipos de projetos você já entregou?',
+        answer: 'Desenvolvi uma ampla variedade de produtos em diferentes segmentos, incluindo:',
+        list: [
+          'Plataformas SaaS com integrações de IA e WhatsApp',
+          'Dashboards IoT com atualizações em tempo real via WebSocket e MQTT',
+          'Plataformas financeiras com sistemas de pagamento Stripe',
+          'Landing pages de alta conversão otimizadas para captura de leads',
+          'Dashboards analíticos com React e TypeScript',
+        ],
+      },
+      {
+        question: 'Como posso te contratar ou entrar em contato?',
+        answer: 'Você pode me contatar por e-mail (joaoppessoa719@gmail.com), LinkedIn (linkedin.com/in/jppessoa) ou WhatsApp (+55 11 99240-0586). Costumo responder em até 24 horas.',
+      },
+    ],
+  },
+
   footer: {
     location: 'São Paulo, Brasil',
   },

@@ -138,6 +138,54 @@ export const en: Translations = {
     available: 'Available for new projects',
   },
 
+  faq: {
+    sectionTag: '// faq',
+    title: 'Frequently Asked',
+    titleHighlight: 'Questions',
+    items: [
+      {
+        question: 'What technologies do you specialize in?',
+        answer: 'I specialize in full-stack development with 4+ years of hands-on experience. My core stack includes:',
+        list: [
+          'React & Next.js — modern, performant frontends',
+          'TypeScript & Node.js — type-safe, scalable backends',
+          'AWS, Docker & CI/CD — cloud infrastructure and DevOps',
+          'PostgreSQL & Firebase — relational and real-time databases',
+          'REST & GraphQL APIs — third-party service integrations',
+        ],
+      },
+      {
+        question: 'Are you available for freelance or remote work?',
+        answer: 'Yes — I am currently open to new projects, remote opportunities, and strategic partnerships worldwide. I adapt to your timezone and workflow.',
+      },
+      {
+        question: 'How many years of experience do you have?',
+        answer: 'Over 4 years of professional experience since 2020. Key milestones include:',
+        list: [
+          '50% reduction in page load time at A3 Media',
+          '80% cost reduction on Google Maps API at BWS IoT',
+          'Senior Engineer role leading high-complexity projects at OT3N Brazil',
+          'Founder building AI-integrated SaaS products from 0 to market',
+        ],
+      },
+      {
+        question: 'What types of projects have you delivered?',
+        answer: 'I have built a wide range of products across industries, including:',
+        list: [
+          'SaaS platforms with AI and WhatsApp integrations',
+          'IoT dashboards with real-time WebSocket and MQTT updates',
+          'Financial platforms with Stripe payment systems',
+          'High-conversion landing pages optimized for lead capture',
+          'Analytical dashboards with React and TypeScript',
+        ],
+      },
+      {
+        question: 'How can I hire or contact you?',
+        answer: 'You can reach me via email (joaoppessoa719@gmail.com), LinkedIn (linkedin.com/in/jppessoa), or WhatsApp (+55 11 99240-0586). I typically respond within 24 hours.',
+      },
+    ],
+  },
+
   footer: {
     location: 'São Paulo, Brazil',
   },
