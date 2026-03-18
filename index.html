@@ -59,15 +59,21 @@
         {
           "@type": "Organization",
           "@id": "https://codewithjohnny.com.br/#organization",
-          "name": "João Paulo Pessoa",
+          "name": "Code With Johnny",
+          "legalName": "João Paulo Pessoa",
           "url": "https://codewithjohnny.com.br",
           "logo": {
             "@type": "ImageObject",
             "url": "https://codewithjohnny.com.br/icons/android-chrome-512x512.png",
+            "contentUrl": "https://codewithjohnny.com.br/icons/android-chrome-512x512.png",
             "width": 512,
             "height": 512
           },
           "founder": { "@id": "https://codewithjohnny.com.br/#person" },
+          "sameAs": [
+            "https://github.com/johnnydev0",
+            "https://www.linkedin.com/in/jppessoa/"
+          ],
           "contactPoint": {
             "@type": "ContactPoint",
             "email": "joaoppessoa719@gmail.com",
@@ -84,7 +90,7 @@
           "inLanguage": ["pt-BR", "en"]
         },
         {
-          "@type": "WebPage",
+          "@type": ["WebPage", "ProfilePage"],
           "@id": "https://codewithjohnny.com.br/#webpage",
           "url": "https://codewithjohnny.com.br",
           "name": "João Paulo Pessoa | Software Engineer Full Stack",
@@ -104,8 +110,23 @@
           }
         },
         {
+          "@type": "Article",
+          "@id": "https://codewithjohnny.com.br/#article",
+          "headline": "João Paulo Pessoa — Full Stack Software Engineer Portfolio",
+          "description": "Portfolio and professional profile of João Paulo Pessoa, a Full Stack Software Engineer with 4+ years of experience building scalable SaaS, IoT dashboards, and AI-integrated systems.",
+          "url": "https://codewithjohnny.com.br",
+          "isPartOf": { "@id": "https://codewithjohnny.com.br/#webpage" },
+          "author": { "@id": "https://codewithjohnny.com.br/#person" },
+          "publisher": { "@id": "https://codewithjohnny.com.br/#organization" },
+          "datePublished": "2024-01-01",
+          "dateModified": "2026-03-18",
+          "inLanguage": ["pt-BR", "en"],
+          "about": { "@id": "https://codewithjohnny.com.br/#person" }
+        },
+        {
           "@type": "FAQPage",
           "@id": "https://codewithjohnny.com.br/#faq",
+          "isPartOf": { "@id": "https://codewithjohnny.com.br/#webpage" },
           "mainEntity": [
             {
               "@type": "Question",

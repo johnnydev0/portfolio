@@ -12,5 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /icons/site.webmanifest
 
 Sitemap: https://codewithjohnny.com.br/sitemap.xml
