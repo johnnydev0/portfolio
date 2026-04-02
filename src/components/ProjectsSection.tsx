@@ -16,6 +16,7 @@ const ProjectsSection = () => {
       image: "https://prosperiaco.com.br/wp-content/uploads/2025/11/Sequencia-10-1.gif",
       tech: ["React", "Chart.js", "Tailwind", "PostgreSQL", "NestJS", "IA"],
       link: "https://www.prosperiaco.com.br",
+      accent: "primary",
     },
     {
       key: "poraneo" as const,
@@ -23,6 +24,7 @@ const ProjectsSection = () => {
       image: "/poraneo.PNG",
       tech: ["Next.js", "Tailwind", "Framer Motion"],
       link: "https://www.poraneo.com",
+      accent: "secondary",
     },
     {
       key: "categorizai" as const,
@@ -30,6 +32,7 @@ const ProjectsSection = () => {
       image: "/categorizai.PNG",
       tech: ["React", "TypeScript", "OpenAI", "Node.js"],
       link: "https://www.categorizai.com.br",
+      accent: "primary",
     },
     {
       key: "contextoMarcenaria" as const,
@@ -37,25 +40,30 @@ const ProjectsSection = () => {
       image: "/contexto-marcenaria.PNG",
       tech: ["Next.js", "Supabase", "Tailwind"],
       link: "https://www.contextomarcenaria.com.br",
+      accent: "secondary",
     },
   ];
 
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
-      <div ref={ref} className="container mx-auto px-6 mb-12">
+      <span className="section-number">02</span>
+
+      <div ref={ref} className="container mx-auto px-6 mb-16 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="code-font text-sm text-primary mb-4 block">
-            {t.projects.sectionTag}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            {t.projects.title} <span className="text-gradient">{t.projects.titleHighlight}</span>
+
+          <h2
+            className="text-[8vw] leading-[0.85] mt-4 mb-6"
+            style={{ fontFamily: "Outfit, sans-serif" }}
+          >
+            <span className="gradient-heading">{t.projects.title}</span>{" "}
+            <span className="gradient-heading">{t.projects.titleHighlight}</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <p className="text-base text-muted-foreground max-w-xl">
             {t.projects.subtitle}
           </p>
         </motion.div>
@@ -70,68 +78,76 @@ const ProjectsSection = () => {
           className="flex animate-scroll-left hover:[animation-play-state:paused]"
           style={{ width: "fit-content" }}
         >
-          {/* Double the projects for infinite scroll effect */}
           {[...projects, ...projects].map((project, index) => (
             <motion.div
               key={`${project.title}-${index}`}
-              className="flex-shrink-0 w-[400px] mx-4 group perspective-1000"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              className="flex-shrink-0 w-[420px] mx-3 group"
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
             >
-              <div className="relative bg-card rounded-xl border border-border overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.15)] group-hover:-translate-y-2">
+              <div className="relative bg-card border border-border overflow-hidden transition-all duration-400 group-hover:border-primary/60">
+                {/* Dramatic top accent bar */}
+                <div
+                  className={`absolute top-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left ${
+                    project.accent === "primary"
+                      ? "bg-gradient-to-r from-primary to-secondary"
+                      : "bg-gradient-to-r from-secondary to-primary"
+                  }`}
+                />
+
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-52 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Gradient overlay always visible */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
-                  {/* Description overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/95 to-card/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center p-6 text-center backdrop-blur-sm">
-                    <p className="text-sm text-foreground mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-background/92 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-center items-center p-6 text-center">
+                    <p className="text-sm text-foreground mb-5 leading-relaxed">
                       {t.projects.items[project.key].description}
                     </p>
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 hover:bg-primary/90"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-black text-background bg-primary hover:bg-primary/90 transition-colors duration-200"
+                      style={{ clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))" }}
                     >
-                      Ver Projeto <ExternalLink className="w-4 h-4" />
+                      Ver Projeto <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 relative">
-                  {/* Animated border line */}
-                  <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-
+                <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {project.title}
+                    <h3
+                      className="text-xl tracking-tight"
+                      style={{ fontFamily: "Outfit, sans-serif" }}
+                    >
+                      <span className="gradient-heading text-xl">{project.title}</span>
                     </h3>
-                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors opacity-50 group-hover:opacity-100" />
+                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors opacity-40 group-hover:opacity-100" />
                   </div>
 
-                  {/* Tech Stack with staggered animation */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs text-primary bg-primary/10 rounded-md border border-primary/20 transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40"
-                        style={{ transitionDelay: `${techIndex * 50}ms` }}
+                        className="code-font px-2 py-0.5 text-xs text-primary/70 bg-primary/8 border border-primary/15 group-hover:border-primary/30 transition-colors duration-300"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  {/* Impact with icon animation */}
-                  <p className="text-sm text-primary font-medium flex items-center gap-2">
-                    <span className="inline-block transition-transform duration-300 group-hover:rotate-180">✦</span>
+                  {/* Impact */}
+                  <p className="text-xs text-primary font-semibold flex items-center gap-2 code-font">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     {t.projects.items[project.key].impact}
                   </p>
                 </div>

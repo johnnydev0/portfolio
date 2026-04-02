@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { useTranslation } from "@/i18n";
 
 const FAQSection = () => {
@@ -15,7 +15,7 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <span className="section-number">04</span>
 
       <div ref={ref} className="container mx-auto px-6 relative z-10 max-w-3xl">
         {/* Section Header */}
@@ -23,54 +23,69 @@ const FAQSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <span className="code-font text-sm text-primary mb-4 block">
-            {t.faq.sectionTag}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold">
-            {t.faq.title} <span className="text-gradient">{t.faq.titleHighlight}</span>
+  
+          <h2
+            className="text-[8vw] leading-[0.85] mt-4"
+            style={{ fontFamily: "Outfit, sans-serif" }}
+          >
+            <span className="gradient-heading">{t.faq.title}</span>{" "}
+            <span className="gradient-heading">{t.faq.titleHighlight}</span>
           </h2>
         </motion.div>
 
-        {/* FAQ Items */}
-        <dl className="space-y-4">
+        {/* FAQ Items – dramatic accordion */}
+        <dl className="space-y-0 border-t border-border">
           {t.faq.items.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.1 + index * 0.07 }}
-              className="border border-border rounded-xl bg-card overflow-hidden hover:border-primary/40 transition-colors duration-300"
+              transition={{ duration: 0.4, delay: 0.08 + index * 0.06 }}
+              className="border-b border-border group"
             >
               <dt>
                 <button
                   onClick={() => toggle(index)}
                   aria-expanded={openIndex === index}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left gap-4 group"
+                  className="w-full flex items-center justify-between px-0 py-6 text-left gap-6"
                 >
-                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                  <h3
+                    className={`font-black text-base md:text-lg tracking-tight transition-colors duration-200 ${
+                      openIndex === index ? "text-primary" : "text-foreground group-hover:text-primary"
+                    }`}
+                    style={{ fontFamily: "Outfit, sans-serif" }}
+                  >
                     {item.question}
                   </h3>
-                  <ChevronDown
-                    className={`w-5 h-5 text-primary shrink-0 transition-transform duration-300 ${
-                      openIndex === index ? "rotate-180" : ""
+                  <span
+                    className={`shrink-0 w-6 h-6 flex items-center justify-center border transition-all duration-300 ${
+                      openIndex === index
+                        ? "border-primary bg-primary text-background"
+                        : "border-border text-muted-foreground group-hover:border-primary group-hover:text-primary"
                     }`}
-                  />
+                  >
+                    {openIndex === index ? (
+                      <Minus className="w-3 h-3" />
+                    ) : (
+                      <Plus className="w-3 h-3" />
+                    )}
+                  </span>
                 </button>
               </dt>
               <dd
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-96" : "max-h-0"
+                  openIndex === index ? "max-h-96 pb-6" : "max-h-0"
                 }`}
               >
-                <div className="px-6 pb-5 text-muted-foreground">
-                  <p className="leading-relaxed">{item.answer}</p>
+                <div className="pl-0 text-muted-foreground">
+                  <p className="text-sm leading-relaxed">{item.answer}</p>
                   {item.list && item.list.length > 0 && (
-                    <ul className="mt-3 space-y-1.5 list-none">
+                    <ul className="mt-4 space-y-2">
                       {item.list.map((point, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-primary mt-1 shrink-0">▸</span>
+                        <li key={i} className="flex items-start gap-3 text-sm">
+                          <span className="text-primary mt-1 shrink-0 code-font">▸</span>
                           <span>{point}</span>
                         </li>
                       ))}

@@ -14,8 +14,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+      },
+      fontWeight: {
+        black: "900",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,6 +55,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        rose: {
+          DEFAULT: "hsl(var(--glow-secondary))",
+        },
         glow: {
           primary: "hsl(var(--glow-primary))",
           secondary: "hsl(var(--glow-secondary))",
@@ -71,7 +78,7 @@ export default {
           to: { height: "0" },
         },
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": {
@@ -80,7 +87,7 @@ export default {
         },
         "glow-pulse": {
           "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
+          "50%": { opacity: "1" },
         },
         "scroll-left": {
           "0%": { transform: "translateX(0)" },
@@ -88,17 +95,27 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "slide-in-left": {
+          "0%": { opacity: "0", transform: "translateX(-40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-up": "fade-up 0.6s ease-out forwards",
+        "fade-up": "fade-up 0.7s ease-out forwards",
         "fade-in": "fade-in 0.6s ease-out forwards",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         "scroll-left": "scroll-left 30s linear infinite",
         "float": "float 6s ease-in-out infinite",
+        "shimmer": "shimmer 3s ease-in-out infinite",
+        "slide-in-left": "slide-in-left 0.6s ease-out forwards",
       },
     },
   },

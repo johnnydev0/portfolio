@@ -13,17 +13,21 @@ const Index = () => {
   useConsoleMessage();
 
   return (
-    <main className="min-h-screen bg-background">
-      <ReadingProgress />
+    <div className="flex min-h-screen bg-background">
       <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <FAQSection />
-      <CTASection />
-      <Footer />
-    </main>
+
+      {/* Main content – offset by sidebar width on md+ */}
+      <main className="flex-1 md:ml-64 min-w-0">
+        <ReadingProgress />
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <ExperienceSection />
+        <FAQSection />
+        <CTASection />
+        <Footer />
+      </main>
+    </div>
   );
 };
 

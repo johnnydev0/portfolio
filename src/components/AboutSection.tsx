@@ -34,8 +34,8 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-32 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      {/* Decorative ghost number */}
+      <span className="section-number">01</span>
 
       <div ref={ref} className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -43,52 +43,60 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <span className="code-font text-sm text-primary mb-4 block">
-            {t.about.sectionTag}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            {t.about.title} <span className="text-gradient">{t.about.titleHighlight}</span>
+     
+          <h2
+            className="text-[8vw] leading-[0.85] mt-4"
+            style={{ fontFamily: "Outfit, sans-serif" }}
+          >
+            <span className="gradient-heading">{t.about.title}</span>{" "}
+            <span className="gradient-heading">{t.about.titleHighlight}</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              {t.about.paragraph1}
-            </p>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              {t.about.paragraph2}
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {t.about.paragraph3}
-            </p>
+            <div className="space-y-6 pl-6 border-l-2 border-primary/30">
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {t.about.paragraph1}
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {t.about.paragraph2}
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {t.about.paragraph3}
+              </p>
+            </div>
           </motion.div>
 
-          {/* Highlights Grid */}
+          {/* Highlights Grid – dramatic cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-2 gap-4"
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="grid grid-cols-2 gap-px bg-border"
           >
             {highlights.map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                className="p-6 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover-glow group"
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.08 }}
+                className="bg-card p-6 group hover:bg-muted transition-colors duration-300 cursor-default"
               >
-                <item.icon className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="font-semibold mb-2 text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <item.icon className="w-7 h-7 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="font-black text-foreground mb-2 text-sm tracking-wide uppercase">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>

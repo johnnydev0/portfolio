@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "generated": "2026-04-02T14:42:13.185Z",
+  "site": {
+    "title": "João Paulo Pessoa | Software Engineer Full Stack",
+    "description": "Portfolio of João Paulo Pessoa — Full Stack Software Engineer with 4+ years of experience in React, Next.js, TypeScript, and Node.js.",
+    "url": "https://codewithjohnny.com.br"
+  },
+  "documents": [],
+  "metadata": {
+    "totalDocuments": 0,
+    "generator": "aeo.js",
+    "generatorUrl": "https://aeojs.org"
+  }
+}
