@@ -70,13 +70,13 @@ const ProjectsSection = () => {
       </div>
 
       {/* Horizontal Scroll Container */}
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden" style={{ contain: "layout" }}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex animate-scroll-left hover:[animation-play-state:paused]"
-          style={{ width: "fit-content" }}
+          style={{ width: "fit-content", willChange: "transform" }}
         >
           {[...projects, ...projects].map((project, index) => (
             <motion.div
@@ -100,6 +100,8 @@ const ProjectsSection = () => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
